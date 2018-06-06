@@ -29,6 +29,14 @@
                                href="{{ item.absoluteUrl|default(baseUrl ~ '/' ~ item.relativeUrl) }}">
                                 {{ item.text|raw }}
                             </a>
+                            
+                            {% for it in item.subitems %}
+                                    <a class="reference internal"
+                                       href="{{ it.relativeUrl }}">
+                                        {{ it.text }}
+                                    </a>
+                            {% endfor %}
+                            
                         </li>
                     {% endfor %}
                 </ul>
