@@ -32,8 +32,8 @@
                             
                             <ul class="{{ itemId == currentMenu ? 'current' }}">
                             {% for id, it in item.subitems %}
-                                <li class="toctree-l2">
-                                    <a class="{{ id == currentMenu ? 'current' }} reference internal" href="{{ item.absoluteUrl|default(baseUrl ~ '/' ~ item.relativeUrl) }}">
+                                <li class="toctree-l2 {{ id == currentMenu ? 'current' }}">
+                                    <a class="{{ id == currentMenu ? 'current' }} reference internal" href="{{ it.absoluteUrl|default(baseUrl ~ '/' ~ it.relativeUrl) }}">
                                         {{ it.text }}
                                     </a>
                                 </li>
