@@ -30,12 +30,15 @@
                                 {{ item.text|raw }}
                             </a>
                             
-                            {% for it in item.subitems %}
-                                    <a class="reference internal"
-                                       href="{{ it.relativeUrl }}">
+                            <ul class="{{ itemId == currentMenu ? 'current' }}">
+                            {% for id, it in item.subitems %}
+                                <li class="toctree-l2">
+                                    <a class="{{ id == currentMenu ? 'current' }} reference internal" href="{{ item.absoluteUrl|default(baseUrl ~ '/' ~ item.relativeUrl) }}">
                                         {{ it.text }}
                                     </a>
+                                </li>
                             {% endfor %}
+                            </ul>
                             
                         </li>
                     {% endfor %}
